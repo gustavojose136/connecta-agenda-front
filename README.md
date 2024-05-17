@@ -1,25 +1,42 @@
-# Skote -  Angular 13 Responsive Admin Dashboard Template 
+# Connecta Agenda
 
-## Development server
+## Integrantes do projeto: Gustavo José Rosa, Thomas Taiga Nagawa
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-## Code scaffolding
+Este projeto visa desenvolver um Sistema Gerenciador de Agenda Eletrônica para facilitar o controle e organização de estabelecimentos de saúde. O sistema é destinado a três tipos principais de usuários: Dono do Estabelecimento, Profissional Vinculado e Cliente do Estabelecimento.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## 1. Dono do Estabelecimento
+### 1.1 Cadastros
+- **Profissionais:** Permite ao dono cadastrar profissionais associados ao estabelecimento.
+- **Clientes:** Facilita o registro e gerenciamento de clientes vinculados ao estabelecimento.
+- **Planos de Saúde:** Possibilita a inclusão e gestão de diferentes planos de saúde.
+- **Serviços:** Permite o cadastro e atualização dos serviços oferecidos no estabelecimento.
 
-## Build
+### 1.2 Visualizações
+- **Profissionais e Pacientes:** Fornece uma visão geral dos profissionais e pacientes cadastrados no estabelecimento.
+- **Agendamentos:** Permite ao dono criar agendamentos, visualizar os agendamentos do dia e gerenciar cargos no sistema.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+## 2. Profissional Vinculado
+### 2.1 Cadastros
+- **Pacientes:** Permite ao profissional cadastrar novos pacientes associados ao seu atendimento.
+- **Terapias:** Facilita o registro e controle das terapias realizadas pelo profissional.
 
-## Running unit tests
+### 2.2 Agendamentos
+- **Criar Agendamentos:** Permite que o profissional crie agendamentos exclusivos com seus pacientes.
+- **Visualizar Agendamentos:** Possibilita a visualização dos agendamentos do profissional para um melhor gerenciamento.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### 2.3 Visualizações e Filtragem
+- **Visualizar Pacientes:** Permite ao profissional visualizar e filtrar os pacientes por nome, documentos e planos de saúde, otimizando o atendimento.
 
-## Running end-to-end tests
+## 3. Cliente do Estabelecimento
+- **Agendamentos:** Permite que o cliente agende consultas de acordo com a disponibilidade dos profissionais.
+- **Visualização de Dados:** Oferece aos clientes a capacidade de visualizar seus próprios dados cadastrados no sistema.
+- **Confirmação do Agendamento:** Permite aos clientes confirmarem seus agendamentos.
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+Este sistema busca proporcionar uma gestão eficiente da agenda eletrônica, melhorando a experiência tanto para os profissionais quanto para os clientes, garantindo um ambiente organizado e facilitando o atendimento no estabelecimento.
 
-## Further help
+#Tecnologias
+Front-end: Angular
+Back-end: .Net
+Banco: SQL
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
