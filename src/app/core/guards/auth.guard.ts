@@ -11,6 +11,7 @@ import { JwtPayload, jwtDecode } from "jwt-decode";
 
 @Injectable({ providedIn: 'root' })
 export class AuthGuard {
+
   constructor(
     private router: Router,
     private authenticationService: AuthenticationService,
@@ -30,11 +31,16 @@ export class AuthGuard {
         return false;
       }
 
-      console.log(currentUser);
+      // console.log(currentUser);
       const jwt = currentUser.token;
       if (jwt) {
-        console.log(jwt);
+        // const decodedToken = jwt.verify(jwt, environment.apiKey);
+        // console.log(decodedToken);
+
+
+        // console.log(jwt);
         const tokenPayload: JwtPayload = jwtDecode(jwt);
+        // console.log(tokenPayload);
 
         //verifica se o token está expirado
         const expired = tokenPayload.exp < Date.now() / 1000;

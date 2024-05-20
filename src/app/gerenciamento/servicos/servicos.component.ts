@@ -2,19 +2,19 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { PageChangedEvent } from 'ngx-bootstrap/pagination';
-import { NgxSpinner, NgxSpinnerService } from 'ngx-spinner';
+import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
-import { PlanCardService } from 'src/app/core/services/planCard.service';
-import { PlanoSaudeCriarComponent } from './plano-saude-criar/plano-saude-criar.component';
-import { PlanoSaudeEditarComponent } from './plano-saude-editar/plano-saude-editar.component';
 import { PlanCardFilter } from 'src/app/core/models/filter/planCardFilter.model';
+import { PlanCardService } from 'src/app/core/services/planCard.service';
+import { PlanoSaudeCriarComponent } from '../plano-saude/plano-saude-criar/plano-saude-criar.component';
+import { PlanoSaudeEditarComponent } from '../plano-saude/plano-saude-editar/plano-saude-editar.component';
 
 @Component({
-  selector: 'app-plano-saude',
-  templateUrl: './plano-saude.component.html',
-  styleUrls: ['./plano-saude.component.scss']
+  selector: 'app-servicos',
+  templateUrl: './servicos.component.html',
+  styleUrls: ['./servicos.component.scss']
 })
-export class PlanoSaudeComponent {
+export class ServicosComponent {
 
   lists: any;
 
