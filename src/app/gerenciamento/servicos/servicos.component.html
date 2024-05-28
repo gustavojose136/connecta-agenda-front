@@ -5,12 +5,12 @@
         <div class="card-body border-bottom">
           <div class="d-flex align-items-center">
             <h5 class="mb-0 card-title flex-grow-1">
-              <i class="fas fa-credit-card"></i> Plano De Saúde
+              <i class="fas fa-cogs"></i> Serviços
             </h5>
             <div class="flex-shrink-0 d-flex gap-1">
               <a
                 href="javascript:void(0);"
-                (click)="getAllPlanCards()"
+                (click)="getAllServicos()"
                 class="btn btn-light"
                 title="Atualizar"
                 ><i class="mdi mdi-refresh"></i
@@ -23,7 +23,7 @@
             <form
               class="form-horizontal d-flex col-12 row mb-4 justify-content-end"
               [formGroup]="filterForm" *ngIf="filterForm"
-              (ngSubmit)="getAllPlanCards()"
+              (ngSubmit)="getAllServicos()"
             >
               <!-- <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-6 mt-3">
                 <span>Id Do Plano</span>
@@ -36,13 +36,13 @@
                 />
               </div> -->
               <div class="col-xxl-6 col-xl-5 col-lg-4 col-md-6 mt-3">
-                <span>Nome Do Plano</span>
+                <span>Nome Do Servico</span>
                 <input
                   type="text"
                   type="text"
                   class="form-control mt-1"
                   id="searchInput"
-                  placeholder="Nome Do Plano"
+                  placeholder="Nome Do Servico"
                   formControlName="Name"
                 />
               </div>
@@ -78,9 +78,9 @@
                 <button
                   class="btn btn-light col-12 fontButton"
                   type="button"
-                  (click)="openAdicionarPlanoSaudeModal()"
+                  (click)="openAdicionarServicoModal()"
                 >
-                  <i class="fas fa-plus"></i> Adicionar Plano De Saúde
+                  <i class="fas fa-plus"></i> Adicionar Servio
                 </button>
               </div>
             </div>
@@ -148,20 +148,14 @@
               <tbody *ngIf="lists != undefined && lists.length > 0">
                 <tr *ngFor="let data of lists; let i = index">
                   <td>
-                    <span style="width: 180px !important" class="d-flex">
-                      <span
-                        class="text-truncate cursor-pointer"
-                        style="max-width: 180px"
-                        tooltip="{{ data.id }}"
-                        (click)="copyText(data.id)"
-                      >
-                        {{ data.id }}
-                      </span>
-                    </span>
-                  </td>
-                  <td>
                     <span style="width: 140px !important" class="d-flex">
-                      <span class="text-truncate" style="max-width: 140px">
+                      <span class="text-truncate d-flex" style="max-width: 140px">
+                        <div class="avatar-sm me-2">
+                          <div class="avatar-title bg-light rounded-circle">
+                            <img *ngIf="data.image == null || data.image == ''" src="assets/images/users/user-dummy-img.jpg" id="member-img" class="avatar-md rounded-circle h-auto" />
+                            <img *ngIf="data.image != null || data.image != ''" [src]="data.image" id="member-img" class="avatar-md rounded-circle h-auto" />
+                          </div>
+                        </div>
                         {{ data.name }}
                       </span>
                     </span>
@@ -170,6 +164,20 @@
                     <span style="width: 190px !important" class="d-flex">
                       <span class="text-truncate" style="max-width: 190px">
                         {{ data.description }}
+                      </span>
+                    </span>
+                  </td>
+                  <td>
+                    <span style="width: 190px !important" class="d-flex">
+                      <span class="text-truncate" style="max-width: 190px">
+                        {{ data.duration }} Min
+                      </span>
+                    </span>
+                  </td>
+                  <td>
+                    <span style="width: 190px !important" class="d-flex">
+                      <span class="text-truncate" style="max-width: 190px">
+                        {{ data.price }}
                       </span>
                     </span>
                   </td>

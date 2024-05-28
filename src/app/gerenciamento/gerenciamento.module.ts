@@ -15,13 +15,21 @@ import { PlanoSaudeEditarComponent } from './plano-saude/plano-saude-editar/plan
 import { PlanoSaudeCriarComponent } from './plano-saude/plano-saude-criar/plano-saude-criar.component';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { ServicosComponent } from './servicos/servicos.component';
+import { ServicoCriarComponent } from './servicos/servico-criar/servico-criar.component';
+import { ServicoEditarComponent } from './servicos/servico-editar/servico-editar.component';
+import { ClientesComponent } from './clientes/clientes.component';
+import { ClientesCriarComponent } from './clientes/clientes-criar/clientes-criar.component';
 
 @NgModule({
   declarations: [
     PlanoSaudeComponent,
     PlanoSaudeEditarComponent,
     PlanoSaudeCriarComponent,
-    ServicosComponent
+    ServicosComponent,
+    ServicoCriarComponent,
+    ServicoEditarComponent,
+    ClientesComponent,
+    ClientesCriarComponent
   ],
   imports: [
     CommonModule,

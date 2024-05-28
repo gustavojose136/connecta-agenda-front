@@ -1,0 +1,97 @@
+<div class="modal-header modal-scrollable">
+  <h4 class="modal-title pull-left">
+    <i class="fas fa-cog"></i> Adicionar Servico
+  </h4>
+  <button type="button" class="btn" (click)="modalRef.hide()">
+    <i class="fas fa-times"></i>
+  </button>
+</div>
+<div class="modal-body modal-scrollable justify-content-center">
+  <form
+    class="form-horizontal col-12 mb-4"
+    [formGroup]="ServicoForm"
+    *ngIf="ServicoForm"
+    (ngSubmit)="createPlanCard()"
+  >
+  <div class="text-center mb-4">
+    <div class="position-relative d-inline-block">
+      <div class="position-absolute bottom-0 end-0">
+        <label for="member-image-input" class="mb-0" data-bs-toggle="tooltip" data-bs-placement="right" title="Selecione a imagem do serviço">
+          <div class="avatar-xs">
+            <div class="avatar-title bg-light border rounded-circle text-muted cursor-pointer">
+              <i class="bx bxs-image-alt"></i>
+            </div>
+          </div>
+        </label>
+        <input class="form-control d-none" value="" id="member-image-input" type="file" accept="image/png, image/gif, image/jpeg" (change)="fileChange($event)">
+      </div>
+      <div class="avatar-lg">
+        <div class="avatar-title bg-light rounded-circle">
+          <img src="assets/images/users/user-dummy-img.jpg" id="member-img-add" class="avatar-md rounded-circle h-auto" />
+        </div>
+      </div>
+    </div>
+  </div>
+    <div class="col-12 mt-3">
+      <span>Nome Do Servico</span>
+      <input
+        type="text"
+        class="form-control mt-1"
+        formControlName="Name"
+        placeholder="Nome do Servico"
+        [ngClass]="{ 'is-invalid': submit && form.Area.errors }"
+      />
+      <!-- <div *ngIf="form.Nome.errors" class="invalid-feedback">
+        <span *ngIf="form.Nome.errors.required"> Coloque o nome do plano </span>
+      </div> -->
+    </div>
+    <div class="col-12 mt-3">
+      <span>Descrição</span>
+      <textarea
+        type="text"
+        class="form-control mt-1"
+        formControlName="Description"
+        placeholder="Descrição do Plano"
+        [ngClass]="{ 'is-invalid': submit && form.Descricao.errors }"
+      ></textarea>
+      <!-- <div *ngIf="form.Nome.errors" class="invalid-feedback">
+        <span *ngIf="form.Nome.errors.required"> Coloque o nome do plano </span>
+      </div> -->
+    </div>
+    <div class="col-12 mt-3">
+      <span>Preco Do Servico</span>
+      <input
+        type="number"
+        class="form-control mt-1"
+        formControlName="price"
+        placeholder="Preco do Servico"
+        [ngClass]="{ 'is-invalid': submit && form.Area.errors }"
+      />
+      <!-- <div *ngIf="form.Nome.errors" class="invalid-feedback">
+        <span *ngIf="form.Nome.errors.required"> Coloque o nome do plano </span>
+      </div> -->
+    </div>
+    <div class="col-12 mt-3">
+      <span>Duracao Do Servico</span>
+      <input
+        type="number"
+        class="form-control mt-1"
+        formControlName="duration"
+        placeholder="Duracao do Servico"
+        [ngClass]="{ 'is-invalid': submit && form.Area.errors }"
+      />
+      <!-- <div *ngIf="form.Nome.errors" class="invalid-feedback">
+        <span *ngIf="form.Nome.errors.required"> Coloque o nome do plano </span>
+      </div> -->
+    </div>
+  </form>
+
+</div>
+<div class="modal-footer justify-content-between">
+  <button type="button" class="btn btn-secondary" (click)="closeModal()">
+    Fechar
+  </button>
+  <button type="button" class="btn btn-primary" (click)="createPlanCard()">
+    <i class="fas fa-plus"></i> Adicionar Plano De Saúde
+  </button>
+</div>

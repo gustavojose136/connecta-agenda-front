@@ -4,10 +4,10 @@ import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { PageChangedEvent } from 'ngx-bootstrap/pagination';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
-import { PlanCardFilter } from 'src/app/core/models/filter/planCardFilter.model';
-import { PlanCardService } from 'src/app/core/services/planCard.service';
-import { PlanoSaudeCriarComponent } from '../plano-saude/plano-saude-criar/plano-saude-criar.component';
 import { PlanoSaudeEditarComponent } from '../plano-saude/plano-saude-editar/plano-saude-editar.component';
+import { ServiceFilter } from 'src/app/core/models/filter/ServiceFilter.model';
+import { ServiceService } from 'src/app/core/services/servicos.service';
+import { ServicoCriarComponent } from './servico-criar/servico-criar.component';
 
 @Component({
   selector: 'app-servicos',
@@ -28,16 +28,18 @@ export class ServicosComponent {
   modalRef?: BsModalRef;
 
   tableHeaders = [
-    "Id Do Plano De Saude",
-    "Nome Do Plano",
+    // "Id Do Servico",
+    "Nome",
     "Descrição",
+    "Duracao",
+    "Preco",
     "Ativo",
     "Usuário que crioou",
     "Data de criação"
   ];
 
   constructor(
-    private planCardService: PlanCardService,
+    private Service: ServiceService,
     private formBuilder: FormBuilder,
     public toastr: ToastrService,
     private spinner: NgxSpinnerService,
@@ -47,31 +49,37 @@ export class ServicosComponent {
   }
 
   ngOnInit(){
-    this.buildForm(new PlanCardFilter());
-    this.getAllPlanCards();
+    this.buildForm(new ServiceFilter());
+    this.getAllServicos();
   }
 
-  getAllPlanCards(){
+  getAllServicos(){
     this.spinner.show();
     if(this.filterForm.value.IsActive == "null") this.filterForm.value.IsActive = null;
 
-    this.planCardService.getAll(this.filterForm.value).subscribe(
+    this.Service.getAll(this.filterForm.value).subscribe(
       (data) =>{
         console.log(data);
         this.lists = data.data;
+        this.lists.forEach(el => {
+          if (el.image != null && el.image != '') {
+              el.image = 'data:image/png;base64,' + el.image;
+          }
+        });
+
         this.paginationTotalItems = data.total;
         console.log(this.lists);
-        this.spinner.hide(); // Move esta linha aqui
+        this.spinner.hide();
       },
       (error) => {
-        console.error('Ocorreu um erro ao obter os planos de saúde:', error);
-        this.spinner.hide(); // Certifique-se de ocultar o spinner em caso de erro também
+        console.error('Ocorreu um erro ao obter os Servicos:', error);
+        this.spinner.hide();
       }
     );
   }
 
 
-  buildForm(filter: PlanCardFilter) {
+  buildForm(filter: ServiceFilter) {
     this.filterForm = this.formBuilder.group({
       Name: [filter.Name],
       IsActive: [filter.IsActive],
@@ -82,8 +90,8 @@ export class ServicosComponent {
     this.currentPage = event.page;
   }
 
-  openAdicionarPlanoSaudeModal(){
-    this.modalRef = this.modalService.show(PlanoSaudeCriarComponent, {
+  openAdicionarServicoModal(){
+    this.modalRef = this.modalService.show(ServicoCriarComponent, {
       class: "modal-dialog modal-dialog-scrollable modal-dialog-centered modal-md modal-scrollable",
     });
   }

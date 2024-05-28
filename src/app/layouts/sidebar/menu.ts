@@ -21,7 +21,7 @@ export const MENU: MenuItem[] = [
     id: 2,
     label: 'Clientes',
     icon: 'bxs-user',
-    link: '/',
+    link: '/gerenciamento/clientes',
   },
   {
     id: 2,
@@ -39,7 +39,7 @@ export const MENU: MenuItem[] = [
     id: 2,
     label: 'Serviços',
     icon: 'bxs-cog',
-    link: '/',
+    link: '/gerenciamento/servico',
   },
   {
     id: 1,
