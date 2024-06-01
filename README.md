@@ -40,3 +40,9 @@ Front-end: Angular
 Back-end: .Net
 Banco: SQL
 
+#Como usar:
+- Ter o node instalado
+- Ter o angular instalado ( npm i @angular/cli )
+- Dar o comando npm i (para instalar todas as dependências)
+- Dar o comando ng serve para iniciar o servidor
+
