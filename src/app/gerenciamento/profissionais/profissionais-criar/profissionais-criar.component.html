@@ -1,0 +1,110 @@
+<app-page-title title="Cadastrar Profissional" [breadcrumbItems]="breadCrumbItems"></app-page-title>
+<div class="row">
+  <div class="col-lg-3">
+    <div class="card">
+      <div class="card-body">
+        <div class="position-relative d-inline-block d-flex align-items-center justify-content-center">
+          <div class="position-absolute top-0 end-0">
+            <label for="member-image-input" class="mb-0" data-bs-toggle="tooltip" data-bs-placement="left"
+              title="Selecione a imagem do serviço">
+              <div class="avatar-xl">
+                <div class="rounded-circle text-muted cursor-pointer">
+                  <i class="bx bxs-pencil"></i>
+                </div>
+              </div>
+            </label>
+            <input class="form-control d-none" value="" id="member-image-input" type="file"
+              accept="image/png, image/gif, image/jpeg" (change)="fileChange($event)">
+          </div>
+          <div class="avatar-lg">
+            <div class="rounded-circle">
+              <label for="member-image-input" class="mb-0 cursor-pointer" data-bs-toggle="tooltip" data-bs-placement="left"
+                title="Selecione a imagem do serviço">
+                <img src="assets/images/users/user-dummy-img.jpg" id="member-img-add"
+                  class="avatar-md rounded-circle h-auto" />
+              </label>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <span> <strong> {{ ProfissionalData.Name || 'Nome do Profissional' }} </strong></span>
+          <span> <strong> {{ ProfissionalData.Email || 'E-mail do Profissional' }} </strong></span>
+          <span> <strong> {{ ProfissionalData.Cpf || 'Cpf do Profissional' }} </strong></span>
+          <span> <strong> {{ ProfissionalData.BirthDate || 'Data de Nascimento do Profissional' }} </strong></span>
+          <span> <strong> {{ ProfissionalData.Phone || 'Número do Profissional' }} </strong></span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-9">
+    <div class="card">
+      <div class="card-body">
+        <div id="basic-example">
+          <ng-stepper #cdkStepper [linear]="true" class="wizard">
+
+            <cdk-step [optional]="false">
+              <ng-template cdkStepLabel>
+                <span class="number">1.</span>
+                <span>Dados do Profissional</span>
+              </ng-template>
+              <section *ngIf="cdkStepper.selectedIndex === 0">
+                <app-profissional-criar-step-um (formChanged)="onUserFormChange($event)"></app-profissional-criar-step-um>
+              </section>
+            </cdk-step>
+
+            <cdk-step [optional]="true">
+              <ng-template cdkStepLabel>
+                <span class="number">2.</span>
+                <span>Endereço</span>
+              </ng-template>
+              <section *ngIf="cdkStepper.selectedIndex === 1">
+                <app-profissional-criar-step-dois (formChanged)="onUserAddresFormChange($event)"></app-profissional-criar-step-dois>
+              </section>
+            </cdk-step>
+
+            <cdk-step [optional]="true">
+              <ng-template cdkStepLabel>
+                <span class="number">3.</span>
+                <span>Especialidades</span>
+              </ng-template>
+              <section *ngIf="cdkStepper.selectedIndex === 2">
+                <app-profissional-criar-step-tres (formChanged)="onUserServicesFormChange($event)"></app-profissional-criar-step-tres>
+              </section>
+            </cdk-step>
+
+            <cdk-step [optional]="true">
+              <ng-template cdkStepLabel>
+                <span class="number">4.</span>
+                <span>Cadastro Criado</span>
+              </ng-template>
+              <section *ngIf="cdkStepper.selectedIndex === 3">
+                <div class="row justify-content-center">
+                  <div class="col-lg-6">
+                    <div class="text-center">
+                      <div class="mb-4">
+                        <i class="mdi mdi-check-circle-outline text-success display-4"></i>
+                      </div>
+                      <div>
+                        <h5>Confirm Detail</h5>
+                        <p class="text-muted">If several languages coalesce, the grammar of the resulting</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <ul class="list-inline wizard d-flex justify-content-end mb-0">
+                  <li class="previous list-inline-item" aria-disabled="true"><button class="btn btn-primary"
+                      cdkStepperPrevious>Previous</button></li>
+                  <li class="next list-inline-item" aria-disabled="false"><button class="btn btn-primary"
+                      cdkStepperNext>Finish</button></li>
+                </ul>
+              </section>
+            </cdk-step>
+
+          </ng-stepper>
+        </div>
+        <button (click)="createProfissional()" > enviar</button>
+      </div>
+    </div>
+  </div>
+</div>

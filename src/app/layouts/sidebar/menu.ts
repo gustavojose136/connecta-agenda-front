@@ -27,7 +27,7 @@ export const MENU: MenuItem[] = [
     id: 2,
     label: 'Profissionais',
     icon: 'bxs-user',
-    link: '/',
+    link: '/gerenciamento/profissionais',
   },
   {
     id: 2,

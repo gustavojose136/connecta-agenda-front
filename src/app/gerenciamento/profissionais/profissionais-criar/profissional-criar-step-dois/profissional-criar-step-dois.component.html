@@ -1,0 +1,66 @@
+<form class="form-horizontal d-flex col-12 row mb-4 justify-content-end" [formGroup]="enderecoProfissionalForm"
+  *ngIf="enderecoProfissionalForm" (ngSubmit)="nextStep()">
+
+  <div class="row">
+    <div class="col-lg-2">
+      <div class="mb-3">
+        <span>Cep</span>
+        <input type="text" mask="00.000-000" class="form-control mt-1" id="searchInput" placeholder="00.000-000"
+          formControlName="zipCode" />
+      </div>
+    </div>
+    <div class="col-lg-1">
+      <div class="mb-3">
+        <span>Estado</span>
+        <input type="text" class="form-control mt-1" id="searchInput" placeholder="DF"
+          formControlName="state" />
+      </div>
+    </div>
+    <div class="col-lg-5">
+      <div class="mb-3">
+        <span>Cidade</span>
+        <input type="text" type="text" class="form-control mt-1" id="searchInput" placeholder="Digite a sua cidade"
+          formControlName="city" />
+      </div>
+    </div>
+    <div class="col-lg-4">
+      <div class="mb-3">
+        <span>Bairro</span>
+        <input type="text" type="text" class="form-control mt-1" id="searchInput" placeholder="Digite o bairro"
+          formControlName="Bairro" />
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-lg-4">
+      <div class="mb-3">
+        <span>Rua</span>
+        <input type="text" type="text" class="form-control mt-1" id="searchInput" placeholder="Digite a rua"
+          formControlName="street" />
+      </div>
+    </div>
+    <div class="col-lg-4">
+      <div class="mb-3">
+        <span>Número</span>
+        <input type="number" class="form-control mt-1" id="searchInput" placeholder="Digite o número"
+          formControlName="number" />
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="mb-3">
+        <span>Observação</span>
+        <input type="text" class="form-control mt-1" id="searchInput" placeholder="Observação"
+          formControlName="observation" />
+      </div>
+    </div>
+  </div>
+</form>
+<ul class="list-inline wizard d-flex justify-content-end mb-0">
+  <li class="previous list-inline-item" aria-disabled="true"><button class="btn btn-primary"
+      cdkStepperPrevious>Previous</button></li>
+  <li class="next list-inline-item" aria-disabled="false"><button class="btn btn-primary" cdkStepperNext>Next</button>
+  </li>
+</ul>

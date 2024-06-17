@@ -13,7 +13,7 @@ import { BsDropdownModule,BsDropdownConfig} from 'ngx-bootstrap/dropdown';
 import { CarouselModule } from 'ngx-bootstrap/carousel';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 import { ModalModule } from 'ngx-bootstrap/modal';
-
+import { FullCalendarModule } from '@fullcalendar/angular';
 import { SimplebarAngularModule } from 'simplebar-angular';
 
 import { DefaultComponent } from './default/default.component';
@@ -26,6 +26,7 @@ import { DefaultComponent } from './default/default.component';
     ReactiveFormsModule,
     DashboardsRoutingModule,
     UIModule,
+    FullCalendarModule,
     BsDropdownModule.forRoot(),
     TooltipModule.forRoot(),
     TabsModule.forRoot(),

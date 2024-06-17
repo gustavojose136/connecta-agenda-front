@@ -19,6 +19,16 @@ import { ServicoCriarComponent } from './servicos/servico-criar/servico-criar.co
 import { ServicoEditarComponent } from './servicos/servico-editar/servico-editar.component';
 import { ClientesComponent } from './clientes/clientes.component';
 import { ClientesCriarComponent } from './clientes/clientes-criar/clientes-criar.component';
+import { ProfissionaisComponent } from './profissionais/profissionais.component';
+import { ProfissionaisCriarComponent } from './profissionais/profissionais-criar/profissionais-criar.component';
+import { ProfissionaisEditarComponent } from './profissionais/profissionais-editar/profissionais-editar.component';
+import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
+import {CdkStepperModule} from '@angular/cdk/stepper';
+import { NgxMaskDirective, NgxMaskPipe, provideNgxMask } from 'ngx-mask';
+import { NgStepperModule } from 'angular-ng-stepper';
+import { ProfissionalCriarStepUmComponent } from './profissionais/profissionais-criar/profissional-criar-step-um/profissional-criar-step-um.component';
+import { ProfissionalCriarStepDoisComponent } from './profissionais/profissionais-criar/profissional-criar-step-dois/profissional-criar-step-dois.component';
+import { ProfissionalCriarStepTresComponent } from './profissionais/profissionais-criar/profissional-criar-step-tres/profissional-criar-step-tres.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +39,13 @@ import { ClientesCriarComponent } from './clientes/clientes-criar/clientes-criar
     ServicoCriarComponent,
     ServicoEditarComponent,
     ClientesComponent,
-    ClientesCriarComponent
+    ClientesCriarComponent,
+    ProfissionaisComponent,
+    ProfissionaisCriarComponent,
+    ProfissionaisEditarComponent,
+    ProfissionalCriarStepUmComponent,
+    ProfissionalCriarStepDoisComponent,
+    ProfissionalCriarStepTresComponent,
   ],
   imports: [
     CommonModule,
@@ -40,6 +56,11 @@ import { ClientesCriarComponent } from './clientes/clientes-criar/clientes-criar
     ReactiveFormsModule,
     PaginationModule.forRoot(),
     TooltipModule.forRoot(),
+    CKEditorModule,
+    NgxMaskDirective,
+    NgxMaskPipe,
+    NgStepperModule,
+    CdkStepperModule,
     GerenciamentoRoutingModule,
     BsDatepickerModule.forRoot(),
     AlertModule.forRoot(),
@@ -48,7 +69,7 @@ import { ClientesCriarComponent } from './clientes/clientes-criar/clientes-criar
   ],
   exports: [
   ],
-  providers: [],
+  providers: [provideNgxMask()],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class GerenciamentoModule { }
