@@ -1,33 +1,33 @@
-<form class="form-horizontal d-flex col-12 row mb-4 justify-content-end" [formGroup]="enderecoProfissionalForm"
-  *ngIf="enderecoProfissionalForm" (ngSubmit)="nextStep()">
+<form class="form-horizontal d-flex col-12 row mb-4 justify-content-end" [formGroup]="addressClienteForm"
+      *ngIf="addressClienteForm" (ngSubmit)="nextStep()">
 
   <div class="row">
     <div class="col-lg-2">
       <div class="mb-3">
         <span>Cep</span>
         <input type="text" mask="00.000-000" class="form-control mt-1" placeholder="00.000-000"
-          formControlName="zipCode" />
+               formControlName="ZipCode" />
       </div>
     </div>
     <div class="col-lg-1">
       <div class="mb-3">
         <span>Estado</span>
         <input type="text" class="form-control mt-1" placeholder="DF"
-          formControlName="state" />
+               formControlName="State" />
       </div>
     </div>
     <div class="col-lg-5">
       <div class="mb-3">
         <span>Cidade</span>
-        <input type="text" type="text" class="form-control mt-1" placeholder="Digite a sua cidade"
-          formControlName="city" />
+        <input type="text" class="form-control mt-1" placeholder="Digite a sua cidade"
+               formControlName="City" />
       </div>
     </div>
     <div class="col-lg-4">
       <div class="mb-3">
         <span>Bairro</span>
-        <input type="text" type="text" class="form-control mt-1" placeholder="Digite o bairro"
-          formControlName="Bairro" />
+        <input type="text" class="form-control mt-1" placeholder="Digite o bairro"
+               formControlName="Neighborhood" />
       </div>
     </div>
   </div>
@@ -36,15 +36,15 @@
     <div class="col-lg-4">
       <div class="mb-3">
         <span>Rua</span>
-        <input type="text" type="text" class="form-control mt-1" placeholder="Digite a rua"
-          formControlName="street" />
+        <input type="text" class="form-control mt-1" placeholder="Digite a rua"
+               formControlName="Street" />
       </div>
     </div>
     <div class="col-lg-4">
       <div class="mb-3">
         <span>Número</span>
         <input type="number" class="form-control mt-1" placeholder="Digite o número"
-          formControlName="number" />
+               formControlName="Number" />
       </div>
     </div>
   </div>
@@ -53,14 +53,14 @@
       <div class="mb-3">
         <span>Observação</span>
         <input type="text" class="form-control mt-1" placeholder="Observação"
-          formControlName="observation" />
+               formControlName="Observation" />
       </div>
     </div>
   </div>
 </form>
 <ul class="list-inline wizard d-flex justify-content-end mb-0">
   <li class="previous list-inline-item" aria-disabled="true"><button class="btn btn-primary"
-      cdkStepperPrevious (click)="returnStep()">Voltar</button></li>
+                                                                     cdkStepperPrevious (click)="returnStep()">Voltar</button></li>
   <li class="next list-inline-item" aria-disabled="false"><button class="btn btn-primary" cdkStepperNext (click)="nextStep()">Próximo</button>
   </li>
 </ul>

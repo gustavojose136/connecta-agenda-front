@@ -12,7 +12,9 @@ export const environment = {
     measurementId: ''
   },
   //dev
-  apiAddress: "https://localhost:44312/api/",
+  //apiAddress: "https://localhost:44312/api/",
+  apiAddress: "http://localhost:5171/api/",
+
 
   apiKey: "conect-agen44367809-==-0daewewewbat2-032jkds5"
 

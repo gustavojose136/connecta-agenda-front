@@ -1,15 +1,16 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { ProfissionalServiceShortModel } from 'src/app/core/models/Add/ProfissionalAdd.Model';
 import { ServiceFilter } from 'src/app/core/models/filter/ServiceFilter.model';
 import { ServiceService } from 'src/app/core/services/servicos.service';
+import {ProfissionalServiceShortModelStateService} from "./profissional-service-short-model-state.service";
 
 @Component({
   selector: 'app-profissional-criar-step-tres',
   templateUrl: './profissional-criar-step-tres.component.html',
   styleUrls: ['./profissional-criar-step-tres.component.scss']
 })
-export class ProfissionalCriarStepTresComponent {
+export class ProfissionalCriarStepTresComponent implements OnInit {
 
   servicosProfissionalForm: FormGroup;
 
@@ -19,13 +20,14 @@ export class ProfissionalCriarStepTresComponent {
 
   constructor(
     private formBuilder: FormBuilder,
-    private servicoService: ServiceService
+    private servicoService: ServiceService,
+    private profissionalServiceShortModelStateService: ProfissionalServiceShortModelStateService
   ) { }
 
   ngOnInit() {
-    this.getAllServices();
-
-    this.buildForm(new ProfissionalServiceShortModel());
+    this.profissionalServiceShortModelStateService.getValue().subscribe(data => {
+      this.buildForm(data);
+    });
 
     this.servicosProfissionalForm.valueChanges.subscribe(value => {
       console.log('Dados do formulário em tempo real:', value);
@@ -51,5 +53,11 @@ export class ProfissionalCriarStepTresComponent {
 
   nextStep() {
     console.log(this.servicosProfissionalForm.value);
+    this.profissionalServiceShortModelStateService.setValue(this.servicosProfissionalForm.value);
+  }
+
+  returnStep() {
+    console.log(this.servicosProfissionalForm.value);
+    this.profissionalServiceShortModelStateService.setValue(this.servicosProfissionalForm.value);
   }
 }

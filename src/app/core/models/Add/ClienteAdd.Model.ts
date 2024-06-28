@@ -1,6 +1,6 @@
 export class ClientAddModel {
   ClientData: Client = new Client();
-  ClientAddres: ClientAddres = new ClientAddres();
+  ClientAddress: ClientAddres = new ClientAddres();
   ClientPlans?: ClientPlans[];
 }
 
