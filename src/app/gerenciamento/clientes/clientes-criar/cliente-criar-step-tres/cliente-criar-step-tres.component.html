@@ -1,26 +1,11 @@
-<form class="form-horizontal d-flex col-12 row mb-4 justify-content-end" [formGroup]="formGroup"
-      *ngIf="formGroup" (ngSubmit)="nextStep()">
+<form class="form-horizontal d-flex col-12 row mb-4 justify-content-end" [formGroup]="planosClienteForm"
+      *ngIf="planosClienteForm" (ngSubmit)="nextStep()">
 
   <div class="row">
     <div class="col-lg-4">
       <div class="mb-3">
-        <span>Nome</span>
-        <input type="text" class="form-control mt-1" placeholder="Nome Do Profissional"
-               formControlName="name" />
-      </div>
-    </div>
-    <div class="col-lg-4">
-      <div class="mb-3">
-        <span>Nome Social</span>
-        <input type="text" class="form-control mt-1" placeholder="Nome Do social (opcional)"
-               formControlName="socialName" />
-      </div>
-    </div>
-    <div class="col-lg-4">
-      <div class="mb-3">
-        <span>E-mail</span>
-        <input type="text" class="form-control mt-1" placeholder="e-mail"
-               formControlName="email" />
+        <span>Nome do plano</span>
+        <input type="text" class="form-control mt-1" placeholder="Plano"/>
       </div>
     </div>
   </div>
@@ -28,56 +13,20 @@
   <div class="row">
     <div class="col-lg-6">
       <div class="mb-3">
-        <span>Senha</span>
+        <span>Número do plano</span>
         <div class="input-group mt-1">
-          <input type="password" class="form-control" placeholder="Senha" formControlName="password" /> <!--resolver o problema do olho/> -->
-          <button class="btn btn-light" type="button"><i class="mdi mdi-eye-outline"></i></button>
+          <input type="text" class="form-control" placeholder="000000000000"/>
         </div>
-      </div>
-    </div>
-    <div class="col-lg-6">
-      <div class="mb-3">
-        <span>Confirme a senha</span>
-        <div class="input-group mt-1">
-          <input type="password" class="form-control" placeholder="Senha" />
-          <button class="btn btn-light" type="button"><i class="mdi mdi-eye-outline"></i></button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col-lg-3">
-      <div class="mb-3">
-        <span>Data de nascimento</span>
-        <input type="date" class="form-control mt-1" placeholder="Data de nascimento"
-               formControlName="birthDate" />
-      </div>
-    </div>
-    <div class="col-lg-3">
-      <div class="mb-3">
-        <span>Numero de telefone</span>
-        <input type="text" mask="(00) 00000-0000" class="form-control mt-1" placeholder="(99) 99999-9999"
-               formControlName="phone" />
-      </div>
-    </div>
-    <div class="col-lg-3">
-      <div class="mb-3">
-        <span>CPF</span>
-        <input type="text" mask="000.000.000-00" class="form-control mt-1" placeholder="CPF"
-               formControlName="cpf" />
-      </div>
-    </div>
-    <div class="col-lg-3">
-      <div class="mb-3">
-        <span>RG</span>
-        <input type="text" mask="00.000.000-0" class="form-control mt-1" placeholder="RG"
-               formControlName="rg" />
+        <button class="btn btn-primary" cdkStepperNext style="height: calc(1.5em + .75rem + 5px); display: flex; align-items: center; justify-content: center;">
+          + Adicionar seu plano
+        </button>
       </div>
     </div>
   </div>
 </form>
 <ul class="list-inline wizard d-flex justify-content-end mb-0">
-  <li class="next list-inline-item" aria-disabled="false"><button class="btn btn-primary" cdkStepperNext (click)="nextStep()">Próximo</button>
+  <li class="previous list-inline-item" aria-disabled="true"><button class="btn btn-primary"
+                                                                     cdkStepperPrevious (click)="returnStep()">Voltar</button></li>
+  <li class="next list-inline-item" aria-disabled="false"><button class="btn btn-primary" cdkStepperNext (click)="nextStep()">Confirmar</button>
   </li>
 </ul>

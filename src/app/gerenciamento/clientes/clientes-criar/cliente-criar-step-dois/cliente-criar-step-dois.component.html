@@ -1,83 +1,66 @@
-<form class="form-horizontal d-flex col-12 row mb-4 justify-content-end" [formGroup]="formGroup"
-      *ngIf="formGroup" (ngSubmit)="nextStep()">
+<form class="form-horizontal d-flex col-12 row mb-4 justify-content-end" [formGroup]="addressClienteForm"
+      *ngIf="addressClienteForm" (ngSubmit)="nextStep()">
 
   <div class="row">
-    <div class="col-lg-4">
+    <div class="col-lg-2">
       <div class="mb-3">
-        <span>Nome</span>
-        <input type="text" class="form-control mt-1" placeholder="Nome Do Profissional"
-               formControlName="name" />
+        <span>Cep</span>
+        <input type="text" mask="00.000-000" class="form-control mt-1" placeholder="00.000-000"
+               formControlName="ZipCode" />
+      </div>
+    </div>
+    <div class="col-lg-1">
+      <div class="mb-3">
+        <span>Estado</span>
+        <input type="text" class="form-control mt-1" placeholder="DF"
+               formControlName="State" />
+      </div>
+    </div>
+    <div class="col-lg-5">
+      <div class="mb-3">
+        <span>Cidade</span>
+        <input type="text" class="form-control mt-1" placeholder="Digite a sua cidade"
+               formControlName="City" />
       </div>
     </div>
     <div class="col-lg-4">
       <div class="mb-3">
-        <span>Nome Social</span>
-        <input type="text" class="form-control mt-1" placeholder="Nome Do social (opcional)"
-               formControlName="socialName" />
-      </div>
-    </div>
-    <div class="col-lg-4">
-      <div class="mb-3">
-        <span>E-mail</span>
-        <input type="text" class="form-control mt-1" placeholder="e-mail"
-               formControlName="email" />
+        <span>Bairro</span>
+        <input type="text" class="form-control mt-1" placeholder="Digite o bairro"
+               formControlName="Neighborhood" />
       </div>
     </div>
   </div>
 
   <div class="row">
-    <div class="col-lg-6">
+    <div class="col-lg-4">
       <div class="mb-3">
-        <span>Senha</span>
-        <div class="input-group mt-1">
-          <input type="password" class="form-control" placeholder="Senha" formControlName="password" /> <!--resolver o problema do olho/> -->
-          <button class="btn btn-light" type="button"><i class="mdi mdi-eye-outline"></i></button>
-        </div>
+        <span>Rua</span>
+        <input type="text" class="form-control mt-1" placeholder="Digite a rua"
+               formControlName="Street" />
       </div>
     </div>
-    <div class="col-lg-6">
+    <div class="col-lg-4">
       <div class="mb-3">
-        <span>Confirme a senha</span>
-        <div class="input-group mt-1">
-          <input type="password" class="form-control" placeholder="Senha" />
-          <button class="btn btn-light" type="button"><i class="mdi mdi-eye-outline"></i></button>
-        </div>
+        <span>Número</span>
+        <input type="number" class="form-control mt-1" placeholder="Digite o número"
+               formControlName="Number" />
       </div>
     </div>
   </div>
-
   <div class="row">
-    <div class="col-lg-3">
+    <div class="col-lg-12">
       <div class="mb-3">
-        <span>Data de nascimento</span>
-        <input type="date" class="form-control mt-1" placeholder="Data de nascimento"
-               formControlName="birthDate" />
-      </div>
-    </div>
-    <div class="col-lg-3">
-      <div class="mb-3">
-        <span>Numero de telefone</span>
-        <input type="text" mask="(00) 00000-0000" class="form-control mt-1" placeholder="(99) 99999-9999"
-               formControlName="phone" />
-      </div>
-    </div>
-    <div class="col-lg-3">
-      <div class="mb-3">
-        <span>CPF</span>
-        <input type="text" mask="000.000.000-00" class="form-control mt-1" placeholder="CPF"
-               formControlName="cpf" />
-      </div>
-    </div>
-    <div class="col-lg-3">
-      <div class="mb-3">
-        <span>RG</span>
-        <input type="text" mask="00.000.000-0" class="form-control mt-1" placeholder="RG"
-               formControlName="rg" />
+        <span>Observação</span>
+        <input type="text" class="form-control mt-1" placeholder="Observação"
+               formControlName="Observation" />
       </div>
     </div>
   </div>
 </form>
 <ul class="list-inline wizard d-flex justify-content-end mb-0">
+  <li class="previous list-inline-item" aria-disabled="true"><button class="btn btn-primary"
+                                                                     cdkStepperPrevious (click)="returnStep()">Voltar</button></li>
   <li class="next list-inline-item" aria-disabled="false"><button class="btn btn-primary" cdkStepperNext (click)="nextStep()">Próximo</button>
   </li>
 </ul>

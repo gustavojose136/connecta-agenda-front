@@ -1,6 +1,6 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {FormBuilder, FormGroup, ReactiveFormsModule} from '@angular/forms';
-import {Profissional} from 'src/app/core/models/Add/ProfissionalAdd.Model';
+import {Client} from 'src/app/core/models/Add/ClienteAdd.Model';
 import {ClienteCriarStepUmStateService} from "./cliente-criar-step-um-state.service";
 
 @Component({
@@ -35,20 +35,19 @@ export class ClienteCriarStepUmComponent implements OnInit {
     });
   }
 
-  buildForm(filter: Profissional) {
+  buildForm(filter: Client) {
     this.ClienteDataForm = this.formBuilder.group({
-      name: [filter.name],
-      socialName: [filter.socialName],
-      email: [filter.email],
-      password: [filter.password],
-      gender: [filter.gender],
-      phone: [filter.phone],
-      cpf: [filter.cpf],
-      rg: [filter.rg],
-      birthDate: [filter.birthDate],
-      isAdmin: [filter.isAdmin],
-      image: [filter.image],
-      worksDays: [filter.worksDays],
+      name: [filter.Name],
+      socialName: [filter.SocialName],
+      email: [filter.Email],
+      password: [filter.Password],
+      gender: [filter.Gender],
+      phone: [filter.Phone],
+      cpf: [filter.Cpf],
+      rg: [filter.Rg],
+      birthDate: [filter.BirthDate],
+      isAdmin: [filter.IsAdmin],
+      image: [filter.Image],
     });
   }
 

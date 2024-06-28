@@ -1,21 +1,21 @@
 import {Injectable} from "@angular/core";
 import {StateService} from "../../../../shared/services/state.service";
-import {ProfissionalServiceShortModel} from "../../../../core/models/Add/ProfissionalAdd.Model";
+import {ClientPlans} from "../../../../core/models/Add/ClienteAdd.Model";
 import {Observable} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
 })
-export class ClienteCriarStepTresStateService extends StateService<ProfissionalServiceShortModel> {
+export class ClienteCriarStepTresStateService extends StateService<ClientPlans> {
   constructor() {
-    super(new ProfissionalServiceShortModel());
+    super(new ClientPlans());
   }
 
-  setValue(data: ProfissionalServiceShortModel): void {
+  setValue(data: ClientPlans): void {
     this.setState(data);
   }
 
-  getValue(): Observable<ProfissionalServiceShortModel> {
+  getValue(): Observable<ClientPlans> {
     return this.select(state => state);
   }
 }
