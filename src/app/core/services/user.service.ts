@@ -11,6 +11,11 @@ export class UserProfileService {
         return this.http.get<User[]>(`/api/login`);
     }
 
+    getAllUsers() {
+      return this.http.get<any>(`/users`);
+  }
+
+
     register(user: User) {
         return this.http.post(`/users/register`, user);
     }
