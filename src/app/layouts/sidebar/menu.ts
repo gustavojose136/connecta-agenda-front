@@ -41,23 +41,23 @@ export const MENU: MenuItem[] = [
     icon: 'bxs-cog',
     link: '/gerenciamento/servico',
   },
-  {
-    id: 1,
-    label: 'Admin',
-    isTitle: true
-  },
-  {
-    id: 2,
-    label: 'Usuários',
-    icon: 'bxs-user',
-    link: '/',
-  },
-  {
-    id: 2,
-    label: 'Configurações',
-    icon: 'bxs-cog',
-    link: '/',
-  },
+  // {
+  //   id: 1,
+  //   label: 'Admin',
+  //   isTitle: true
+  // },
+  // {
+  //   id: 2,
+  //   label: 'Usuários',
+  //   icon: 'bxs-user',
+  //   link: '/',
+  // },
+  // {
+  //   id: 2,
+  //   label: 'Configurações',
+  //   icon: 'bxs-cog',
+  //   link: '/',
+  // },
   // {
   //     id: 2,
   //     label: 'MENUITEMS.DASHBOARDS.TEXT',

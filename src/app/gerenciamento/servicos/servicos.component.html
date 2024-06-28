@@ -8,23 +8,15 @@
               <i class="fas fa-cogs"></i> Serviços
             </h5>
             <div class="flex-shrink-0 d-flex gap-1">
-              <a
-                href="javascript:void(0);"
-                (click)="getAllServicos()"
-                class="btn btn-light"
-                title="Atualizar"
-                ><i class="mdi mdi-refresh"></i
-              ></a>
+              <a href="javascript:void(0);" (click)="getAllServicos()" class="btn btn-light" title="Atualizar"><i
+                  class="mdi mdi-refresh"></i></a>
             </div>
           </div>
         </div>
         <div class="card-body border-bottom">
           <div class="row justify-content-center">
-            <form
-              class="form-horizontal d-flex col-12 row mb-4 justify-content-end"
-              [formGroup]="filterForm" *ngIf="filterForm"
-              (ngSubmit)="getAllServicos()"
-            >
+            <form class="form-horizontal d-flex col-12 row mb-4 justify-content-end" [formGroup]="filterForm"
+              *ngIf="filterForm" (ngSubmit)="getAllServicos()">
               <!-- <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-6 mt-3">
                 <span>Id Do Plano</span>
                 <input
@@ -37,14 +29,8 @@
               </div> -->
               <div class="col-xxl-6 col-xl-5 col-lg-4 col-md-6 mt-3">
                 <span>Nome Do Servico</span>
-                <input
-                  type="text"
-                  type="text"
-                  class="form-control mt-1"
-                  id="searchInput"
-                  placeholder="Nome Do Servico"
-                  formControlName="Name"
-                />
+                <input type="text" type="text" class="form-control mt-1" id="searchInput" placeholder="Nome Do Servico"
+                  formControlName="Name" />
               </div>
 
               <div class="col-xxl-3 col-xl-3 col-lg-2 col-md-6 mt-3">
@@ -56,30 +42,18 @@
                 </select>
               </div>
 
-              <div
-                class="col-xxl-3 col-xl-3 col-lg-5 col-md-6 mt-3 d-flex align-items-end justify-content-between"
-              >
+              <div class="col-xxl-3 col-xl-3 col-lg-5 col-md-6 mt-3 d-flex align-items-end justify-content-between">
                 <button type="submit" class="btn btn-soft-secondary col-9">
                   <i class="mdi mdi-filter-outline align-middle"></i> Filtrar
                 </button>
-                <button
-                  (click)="clearFilter()"
-                  class="btn btn-light col-2"
-                  type="button"
-                >
+                <button (click)="clearFilter()" class="btn btn-light col-2" type="button">
                   <i class="fas fa-eraser"></i>
                 </button>
               </div>
             </form>
             <div class="col-12 row justify-content-end mt-4">
-              <div
-                class="d-flex align-items-end col-md-12 col-lg-4 col-xl-3 col-xxl-3 mt-3 mt-lg-0"
-              >
-                <button
-                  class="btn btn-light col-12 fontButton"
-                  type="button"
-                  (click)="openAdicionarServicoModal()"
-                >
+              <div class="d-flex align-items-end col-md-12 col-lg-4 col-xl-3 col-xxl-3 mt-3 mt-lg-0">
+                <button class="btn btn-light col-12 fontButton" type="button" (click)="openAdicionarServicoModal()">
                   <i class="fas fa-plus"></i> Adicionar Servio
                 </button>
               </div>
@@ -88,19 +62,11 @@
         </div>
         <div class="card-body">
           <div class="table-responsive">
-            <table
-              class="table align-middle dt-responsive nowrap w-100 table-check"
-              id="job-list"
-            >
+            <table class="table align-middle dt-responsive nowrap w-100 table-check" id="job-list">
               <thead>
                 <tr>
-                  <th
-                    scope="col"
-                    *ngFor="let item of tableHeaders"
-                  >
-                    <div
-                      class="d-flex justify-content-between align-items-center"
-                    >
+                  <th scope="col" *ngFor="let item of tableHeaders">
+                    <div class="d-flex justify-content-between align-items-center">
                       {{ item }}
                       <!-- <i
                         class="fas fa-eye-slash cursor-pointer"
@@ -152,8 +118,16 @@
                       <span class="text-truncate d-flex" style="max-width: 140px">
                         <div class="avatar-sm me-2">
                           <div class="avatar-title bg-light rounded-circle">
-                            <img *ngIf="data.image == null || data.image == ''" src="assets/images/users/user-dummy-img.jpg" id="member-img" class="avatar-md rounded-circle h-auto" />
-                            <img *ngIf="data.image != null || data.image != ''" [src]="data.image" id="member-img" class="avatar-md rounded-circle h-auto" />
+                            <span *ngIf="data.image == null || data.image == ''">
+                              <!-- <img src="assets/images/users/user-dummy-img.jpg" id="member-img"
+                                class="avatar-md rounded-circle h-auto" /> -->
+                            </span>
+
+                            <span *ngIf="data.image != null || data.image != ''">
+                              <img [src]="data.image" id="member-img" class="avatar-sm rounded-circle" />
+                            </span>
+
+
                           </div>
                         </div>
                         {{ data.name }}
@@ -184,15 +158,10 @@
                   <td>
                     <span style="width: 110px !important" class="d-flex">
                       <span class="text-truncate" style="max-width: 110px">
-                        <span
-                          style="font-size: 13px;"
-                          class="h-100 w-100 badge badge-{{ data.type_color }}"
-                          [ngClass]="{
+                        <span style="font-size: 13px;" class="h-100 w-100 badge badge-{{ data.type_color }}" [ngClass]="{
                             'badge-soft-success': data.isActive === true,
                             'badge-soft-danger': data.isActive === false
-                          }"
-                          >{{ data.isActive == true ? "Sim" : "Não" }}</span
-                        >
+                          }">{{ data.isActive == true ? "Sim" : "Não" }}</span>
                       </span>
                     </span>
                   </td>
@@ -207,18 +176,10 @@
                     </span>
                   </td>
                   <td>
-                    <ul
-                      class="list-unstyled hstack gap-1 mb-0 justify-content-center"
-                    >
-                      <li
-                        data-bs-toggle="tooltip"
-                        data-bs-placement="top"
-                        title="Visualizar Ticket"
-                      >
-                        <a
-                          (click)="openEditarPlanoSaudeModal(data)"
-                          class="btn btn-sm btn-soft-primary"
-                          ><i class="fas fa-pencil-alt"></i></a>
+                    <ul class="list-unstyled hstack gap-1 mb-0 justify-content-center">
+                      <li data-bs-toggle="tooltip" data-bs-placement="top" title="Visualizar Ticket">
+                        <a (click)="openEditarPlanoSaudeModal(data)" class="btn btn-sm btn-soft-primary"><i
+                            class="fas fa-pencil-alt"></i></a>
                       </li>
                       <!-- <li data-bs-toggle="tooltip" data-bs-placement="top" title="Edit">
                         <a href="javascript:void(0);" class="btn btn-sm btn-soft-info" (click)="editDataGet(data.id,content)"><i class="mdi mdi-pencil-outline"></i></a>
@@ -230,12 +191,10 @@
                   </td>
                 </tr>
               </tbody>
-              <tbody
-                *ngIf="
+              <tbody *ngIf="
                   lists == undefined ||
                   lists.length == 0
-                "
-              >
+                ">
                 <tr>
                   <td colspan="12" class="text-center">
                     Nenhum registro encontrado!
@@ -250,21 +209,10 @@
             </div>
             <div class="col-sm-12 col-md-6">
               <div class="text-md-right float-md-end pagination-rounded">
-                <ul
-                  class="pagination pagination-rounded justify-content-end mb-2"
-                >
-                  <pagination
-                    [totalItems]="50"
-                    [itemsPerPage]="5"
-                    [maxSize]="paginasVisiveis"
-                    [boundaryLinks]="true"
-                    [rotate]="false"
-                    [previousText]="'<'"
-                    [nextText]="'>'"
-                    [firstText]="'<<'"
-                    [lastText]="'>>'"
-                    (pageChanged)="pageChanged($event)"
-                  ></pagination>
+                <ul class="pagination pagination-rounded justify-content-end mb-2">
+                  <pagination [totalItems]="6" [itemsPerPage]="6" [maxSize]="paginasVisiveis" [boundaryLinks]="true"
+                    [rotate]="false" [previousText]="'<'" [nextText]="'>'" [firstText]="'<<'" [lastText]="'>>'"
+                    (pageChanged)="pageChanged($event)"></pagination>
                 </ul>
               </div>
             </div>

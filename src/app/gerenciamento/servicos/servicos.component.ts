@@ -64,6 +64,8 @@ export class ServicosComponent {
         this.lists.forEach(el => {
           if (el.image != null && el.image != '') {
               el.image = 'data:image/png;base64,' + el.image;
+          } else {
+              el.image = 'assets/images/users/user-dummy-img.jpg';
           }
         });
 

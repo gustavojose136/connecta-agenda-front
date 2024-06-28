@@ -6,7 +6,7 @@
     <div class="col-12">
       <div class="card">
         <div class="card-body">
-          <div class="app-calendar">
+          <div class="app-calendar" *ngIf="shedules">
             <!-- calendar -->
             <full-calendar [options]="calendarOptions"></full-calendar>
           </div>
@@ -19,7 +19,7 @@
 <!-- Add New Event MODAL -->
 <ng-template #modalShow let-modal>
   <div class="modal-header">
-    <h5 class="modal-title" id="modal-title">Add New Event</h5>
+    <h5 class="modal-title" id="modal-title">Criar Agendamento</h5>
     <button type="button" class="btn-close" (click)="closeEventModal()"></button>
   </div>
   <div class="modal-body p-4">
@@ -27,7 +27,7 @@
       <div class="row">
         <div class="col-12">
           <div class="mb-3">
-            <label class="control-label">Event Name</label>
+            <label class="control-label">Nome do evento</label>
             <input class="form-control" placeholder="Insert Event Name" type="text" name="title" formControlName="title"
               [ngClass]="{'is-invalid': submitted && form.title.errors}" />
             <div *ngIf="submitted && form.title.errors" class="invalid-feedback">
@@ -49,6 +49,84 @@
             </div>
           </div>
         </div>
+        <div class="col-12">
+          <div class="mb-3">
+            <label class="control-label">Profissional Service ID</label>
+            <input class="form-control" type="text" formControlName="ProfissionalServiceId" />
+          </div>
+        </div>
+        <div class="col-12">
+          <div class="mb-3">
+            <label class="control-label">Client ID</label>
+            <input class="form-control" type="text" formControlName="ClientId" />
+          </div>
+        </div>
+        <div class="col-12">
+          <div class="mb-3">
+            <label class="control-label">Observation</label>
+            <textarea class="form-control" formControlName="Observation"></textarea>
+          </div>
+        </div>
+        <div class="col-12">
+          <div class="mb-3">
+            <label class="control-label">Status</label>
+            <input class="form-control" type="text" formControlName="Status" />
+          </div>
+        </div>
+        <div class="col-12">
+          <div class="mb-3">
+            <label class="control-label">Start Date</label>
+            <input class="form-control" type="datetime-local" formControlName="StartDate" />
+          </div>
+        </div>
+        <div class="col-12">
+          <div class="mb-3">
+            <label class="control-label">End Date</label>
+            <input class="form-control" type="datetime-local" formControlName="EndDate" />
+          </div>
+        </div>
+        <div class="col-12">
+          <div class="mb-3">
+            <label class="control-label">Payment Method</label>
+            <input class="form-control" type="text" formControlName="paymentMethod" />
+          </div>
+        </div>
+        <div class="col-12">
+          <div class="mb-3">
+            <label class="control-label">Plan Card ID</label>
+            <input class="form-control" type="text" formControlName="PlanCardId" />
+          </div>
+        </div>
+        <div class="col-12">
+          <div class="mb-3">
+            <label class="control-label">Price</label>
+            <input class="form-control" type="number" formControlName="Price" />
+          </div>
+        </div>
+        <div class="col-12">
+          <div class="mb-3">
+            <label class="control-label">Discont</label>
+            <input class="form-control" type="number" formControlName="Discont" />
+          </div>
+        </div>
+        <div class="col-12">
+          <div class="mb-3">
+            <label class="control-label">Is Paid</label>
+            <input class="form-control" type="checkbox" formControlName="IsPaid" />
+          </div>
+        </div>
+        <div class="col-12">
+          <div class="mb-3">
+            <label class="control-label">Is Plan Coop</label>
+            <input class="form-control" type="checkbox" formControlName="IsPlanCoop" />
+          </div>
+        </div>
+        <div class="col-12">
+          <div class="mb-3">
+            <label class="control-label">Price Plan Coop</label>
+            <input class="form-control" type="number" formControlName="PricePlanCoop" />
+          </div>
+        </div>
       </div>
 
       <div class="text-end mt-2">
@@ -68,7 +146,7 @@
 <!-- Edit event modal -->
 <ng-template #editmodalShow let-modal>
   <div class="modal-header">
-    <h5 class="modal-title">Edit Event</h5>
+    <h5 class="modal-title">Editar Agendamentot</h5>
     <button type="button" class="btn-close" aria-hidden="true" (click)="modalRef?.hide()"></button>
   </div>
   <div class="modal-body p-4">
@@ -90,6 +168,86 @@
               <option *ngFor="let option of category" value="{{ option.value }}"> {{ option.name }}
               </option>
             </select>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <div class="mb-3">
+            <label class="control-label">Profissional Service ID</label>
+            <input class="form-control" type="text" formControlName="ProfissionalServiceId" />
+          </div>
+        </div>
+        <div class="col-12">
+          <div class="mb-3">
+            <label class="control-label">Client ID</label>
+            <input class="form-control" type="text" formControlName="ClientId" />
+          </div>
+        </div>
+        <div class="col-12">
+          <div class="mb-3">
+            <label class="control-label">Observation</label>
+            <textarea class="form-control" formControlName="Observation"></textarea>
+          </div>
+        </div>
+        <div class="col-12">
+          <div class="mb-3">
+            <label class="control-label">Status</label>
+            <input class="form-control" type="text" formControlName="Status" />
+          </div>
+        </div>
+        <div class="col-12">
+          <div class="mb-3">
+            <label class="control-label">Start Date</label>
+            <input class="form-control" type="datetime-local" formControlName="StartDate" />
+          </div>
+        </div>
+        <div class="col-12">
+          <div class="mb-3">
+            <label class="control-label">End Date</label>
+            <input class="form-control" type="datetime-local" formControlName="EndDate" />
+          </div>
+        </div>
+        <div class="col-12">
+          <div class="mb-3">
+            <label class="control-label">Payment Method</label>
+            <input class="form-control" type="text" formControlName="paymentMethod" />
+          </div>
+        </div>
+        <div class="col-12">
+          <div class="mb-3">
+            <label class="control-label">Plan Card ID</label>
+            <input class="form-control" type="text" formControlName="PlanCardId" />
+          </div>
+        </div>
+        <div class="col-12">
+          <div class="mb-3">
+            <label class="control-label">Price</label>
+            <input class="form-control" type="number" formControlName="Price" />
+          </div>
+        </div>
+        <div class="col-12">
+          <div class="mb-3">
+            <label class="control-label">Discont</label>
+            <input class="form-control" type="number" formControlName="Discont" />
+          </div>
+        </div>
+        <div class="col-12">
+          <div class="mb-3">
+            <label class="control-label">Is Paid</label>
+            <input class="form-control" type="checkbox" formControlName="IsPaid" />
+          </div>
+        </div>
+        <div class="col-12">
+          <div class="mb-3">
+            <label class="control-label">Is Plan Coop</label>
+            <input class="form-control" type="checkbox" formControlName="IsPlanCoop" />
+          </div>
+        </div>
+        <div class="col-12">
+          <div class="mb-3">
+            <label class="control-label">Price Plan Coop</label>
+            <input class="form-control" type="number" formControlName="PricePlanCoop" />
           </div>
         </div>
       </div>
