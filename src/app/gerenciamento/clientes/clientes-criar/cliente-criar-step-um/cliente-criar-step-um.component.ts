@@ -1,22 +1,26 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
-import {FormBuilder, FormGroup} from '@angular/forms';
+import {FormBuilder, FormGroup, ReactiveFormsModule} from '@angular/forms';
 import {Profissional} from 'src/app/core/models/Add/ProfissionalAdd.Model';
-import {ProfissionalStateService} from "./profissional-state.service";
+import {ClienteCriarStepUmStateService} from "./cliente-criar-step-um-state.service";
 
 @Component({
-  selector: 'app-profissional-criar-step-um',
-  templateUrl: './profissional-criar-step-um.component.html',
-  styleUrls: ['./profissional-criar-step-um.component.scss']
+  selector: 'app-cliente-criar-step-um',
+  templateUrl: './cliente-criar-step-um.component.html',
+  standalone: true,
+  imports: [
+    ReactiveFormsModule
+  ],
+  styleUrls: ['./cliente-criar-step-um.component.scss']
 })
-export class ProfissionalCriarStepUmComponent implements OnInit {
+export class ClienteCriarStepUmComponent implements OnInit {
 
   @Output() formChanged: EventEmitter<any> = new EventEmitter();
 
-  dadosClienteForm: FormGroup;
+  ClienteDataForm: FormGroup;
 
   constructor(
     private formBuilder: FormBuilder,
-    private dadosClienteStateSerivce: ProfissionalStateService
+    private dadosClienteStateSerivce: ClienteCriarStepUmStateService
   ) {
   }
 
@@ -25,14 +29,14 @@ export class ProfissionalCriarStepUmComponent implements OnInit {
       this.buildForm(dadosCliente);
     })
 
-    this.dadosClienteForm.valueChanges.subscribe(value => {
+    this.ClienteDataForm.valueChanges.subscribe(value => {
       console.log('Dados do formulário em tempo real:', value);
       this.formChanged.emit(value);
     });
   }
 
   buildForm(filter: Profissional) {
-    this.dadosClienteForm = this.formBuilder.group({
+    this.ClienteDataForm = this.formBuilder.group({
       name: [filter.name],
       socialName: [filter.socialName],
       email: [filter.email],
@@ -49,8 +53,8 @@ export class ProfissionalCriarStepUmComponent implements OnInit {
   }
 
   nextStep() {
-    console.log(this.dadosClienteForm.value);
-    this.dadosClienteStateSerivce.setValue(this.dadosClienteForm.value);
+    console.log(this.ClienteDataForm.value);
+    this.dadosClienteStateSerivce.setValue(this.ClienteDataForm.value);
     // this.formSubmitted.emit(this.dadosClienteForm.value);
   }
 }

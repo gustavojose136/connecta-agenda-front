@@ -3,16 +3,17 @@ import { FormGroup, FormBuilder } from '@angular/forms';
 import { ProfissionalServiceShortModel } from 'src/app/core/models/Add/ProfissionalAdd.Model';
 import { ServiceFilter } from 'src/app/core/models/filter/ServiceFilter.model';
 import { ServiceService } from 'src/app/core/services/servicos.service';
-import {ProfissionalServiceShortModelStateService} from "./profissional-service-short-model-state.service";
+import {ClienteCriarStepDoisStateService} from "./cliente-criar-step-dois-state.service";
 
 @Component({
-  selector: 'app-profissional-criar-step-tres',
-  templateUrl: './profissional-criar-step-tres.component.html',
-  styleUrls: ['./profissional-criar-step-tres.component.scss']
+  selector: 'app-cliente-criar-step-dois',
+  templateUrl: './cliente-criar-step-dois.component.html',
+  standalone: true,
+  styleUrls: ['./cliente-criar-step-dois.component.scss']
 })
-export class ProfissionalCriarStepTresComponent implements OnInit {
+export class ClienteCriarStepTresComponent implements OnInit {
 
-  servicosProfissionalForm: FormGroup;
+  servicosClienteForm: FormGroup;
 
   servicos: any;
 
@@ -21,22 +22,22 @@ export class ProfissionalCriarStepTresComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private servicoService: ServiceService,
-    private profissionalServiceShortModelStateService: ProfissionalServiceShortModelStateService
+    private clienteServiceShortModelStateService: ClienteCriarStepDoisStateService
   ) { }
 
   ngOnInit() {
-    this.profissionalServiceShortModelStateService.getValue().subscribe(data => {
+    this.clienteServiceShortModelStateService.getValue().subscribe(data => {
       this.buildForm(data);
     });
 
-    this.servicosProfissionalForm.valueChanges.subscribe(value => {
+    this.servicosClienteForm.valueChanges.subscribe(value => {
       console.log('Dados do formulário em tempo real:', value);
       this.formChanged.emit(value);
     });
   }
 
   buildForm(service: ProfissionalServiceShortModel) {
-    this.servicosProfissionalForm = this.formBuilder.group({
+    this.servicosClienteForm = this.formBuilder.group({
       serviceId: [service.serviceId],
       price: [service.price],
       description: [service.description],
@@ -52,12 +53,12 @@ export class ProfissionalCriarStepTresComponent implements OnInit {
   }
 
   nextStep() {
-    console.log(this.servicosProfissionalForm.value);
-    this.profissionalServiceShortModelStateService.setValue(this.servicosProfissionalForm.value);
+    console.log(this.servicosClienteForm.value);
+    this.clienteServiceShortModelStateService.setValue(this.servicosClienteForm.value);
   }
 
   returnStep() {
-    console.log(this.servicosProfissionalForm.value);
-    this.profissionalServiceShortModelStateService.setValue(this.servicosProfissionalForm.value);
+    console.log(this.servicosClienteForm.value);
+    this.clienteServiceShortModelStateService.setValue(this.servicosClienteForm.value);
   }
 }
