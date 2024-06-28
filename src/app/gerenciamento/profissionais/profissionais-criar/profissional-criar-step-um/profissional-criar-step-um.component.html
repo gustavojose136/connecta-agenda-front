@@ -5,21 +5,21 @@
     <div class="col-lg-4">
       <div class="mb-3">
         <span>Nome</span>
-        <input type="text" type="text" class="form-control mt-1" id="searchInput" placeholder="Nome Do Profissional"
+        <input type="text" type="text" class="form-control mt-1" placeholder="Nome Do Profissional"
           formControlName="name" />
       </div>
     </div>
     <div class="col-lg-4">
       <div class="mb-3">
         <span>Nome Social</span>
-        <input type="text" type="text" class="form-control mt-1" id="searchInput" placeholder="Nome Do social (opcional)"
+        <input type="text" type="text" class="form-control mt-1" placeholder="Nome Do social (opcional)"
           formControlName="socialName" />
       </div>
     </div>
     <div class="col-lg-4">
       <div class="mb-3">
         <span>E-mail</span>
-        <input type="text" type="text" class="form-control mt-1" id="searchInput" placeholder="e-mail"
+        <input type="text" type="text" class="form-control mt-1" placeholder="e-mail"
           formControlName="email" />
       </div>
     </div>
@@ -29,52 +29,55 @@
     <div class="col-lg-6">
       <div class="mb-3">
         <span>Senha</span>
-        <input type="text" type="text" class="form-control mt-1" id="searchInput" placeholder="Senha"
-          formControlName="password" />
+        <div class="input-group mt-1">
+          <input type="password" class="form-control" placeholder="Senha" formControlName="password" /> <!--resolver o problema do olho/> -->
+          <button class="btn btn-light" type="button"><i class="mdi mdi-eye-outline"></i></button>
+        </div>
       </div>
     </div>
     <div class="col-lg-6">
       <div class="mb-3">
         <span>Confirme a senha</span>
-        <input type="text" type="text" class="form-control mt-1" id="searchInput" placeholder="Senha"
-          />
+        <div class="input-group mt-1">
+          <input type="password" class="form-control" placeholder="Senha" />
+          <button class="btn btn-light" type="button"><i class="mdi mdi-eye-outline"></i></button>
+        </div>
       </div>
     </div>
   </div>
+
   <div class="row">
     <div class="col-lg-3">
       <div class="mb-3">
         <span>Data de nascimento</span>
-        <input type="date" class="form-control mt-1" id="searchInput" placeholder="Data de nascimento"
+        <input type="date" class="form-control mt-1" placeholder="Data de nascimento"
           formControlName="birthDate" />
       </div>
     </div>
     <div class="col-lg-3">
       <div class="mb-3">
         <span>Numero de telefone</span>
-        <input type="text" mask="(00) 00000-0000" class="form-control mt-1" id="searchInput" placeholder="(99) 99999-9999"
+        <input type="text" mask="(00) 00000-0000" class="form-control mt-1" placeholder="(99) 99999-9999"
           formControlName="phone" />
       </div>
     </div>
     <div class="col-lg-3">
       <div class="mb-3">
         <span>CPF</span>
-        <input type="text" mask="000.000.000-00" class="form-control mt-1" id="searchInput" placeholder="CPF"
+        <input type="text" mask="000.000.000-00" class="form-control mt-1" placeholder="CPF"
           formControlName="cpf" />
       </div>
     </div>
     <div class="col-lg-3">
       <div class="mb-3">
         <span>RG</span>
-        <input type="text" mask="00.000.000-0" class="form-control mt-1" id="searchInput" placeholder="RG"
+        <input type="text" mask="00.000.000-0" class="form-control mt-1" placeholder="RG"
           formControlName="rg" />
       </div>
     </div>
   </div>
 </form>
 <ul class="list-inline wizard d-flex justify-content-end mb-0">
-  <li class="previous list-inline-item" aria-disabled="true"><button class="btn btn-primary"
-      cdkStepperPrevious>Previous</button></li>
-  <li class="next list-inline-item" aria-disabled="false"><button class="btn btn-primary" cdkStepperNext>Next</button>
+  <li class="next list-inline-item" aria-disabled="false"><button class="btn btn-primary" cdkStepperNext>Próximo</button>
   </li>
 </ul>

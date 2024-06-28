@@ -1,66 +1,54 @@
-<form class="form-horizontal d-flex col-12 row mb-4 justify-content-end" [formGroup]="enderecoProfissionalForm"
+<form class="form-horizontal d-flex col-12 row mb-4 justify-content-end" [formGroup]="servicosProfissionalForm"
   *ngIf="servicosProfissionalForm" (ngSubmit)="nextStep()">
 
   <div class="row">
-    <div class="col-lg-2">
+    <div class="col-lg-4">
       <div class="mb-3">
-        <span>Cep</span>
-        <input type="text" mask="00.000-000" class="form-control mt-1" id="searchInput" placeholder="00.000-000"
-          formControlName="zipCode" />
+        <span>Especialidade</span>
+        <input type="text" type="text" class="form-control mt-1" placeholder="Digite a sua especialidade"
+               formControlName="serviceId" />
       </div>
     </div>
-    <div class="col-lg-1">
+    <div class="col-lg-2">
       <div class="mb-3">
-        <span>Estado</span>
-        <input type="text" class="form-control mt-1" id="searchInput" placeholder="DF"
-          formControlName="state" />
+        <span>Duração</span>
+        <input type="text" mask="0h 00min" class="form-control mt-1" placeholder="0h 00min"
+          formControlName="duration" />
+      </div>
+    </div>
+    <div class="col-lg-2">
+      <div class="mb-3">
+        <span>Preço</span>
+        <input type="text" class="form-control mt-1" placeholder="R$ 0,00"
+          formControlName="price" />
       </div>
     </div>
     <div class="col-lg-5">
       <div class="mb-3">
         <span>Cidade</span>
-        <input type="text" type="text" class="form-control mt-1" id="searchInput" placeholder="Digite a sua cidade"
+        <input type="text" type="text" class="form-control mt-1" placeholder="Digite a sua cidade"
           formControlName="city" />
       </div>
     </div>
-    <div class="col-lg-4">
+  </div>
+  <div class="row">
+    <div class="col-lg-10">
       <div class="mb-3">
-        <span>Bairro</span>
-        <input type="text" type="text" class="form-control mt-1" id="searchInput" placeholder="Digite o bairro"
-          formControlName="Bairro" />
+        <span>Descrição</span>
+        <div class="d-flex align-items-center mt-1">
+          <input type="text" class="form-control me-2" placeholder="Descrição" formControlName="description" style="flex-grow: 1;" />
+          <button class="btn btn-primary" cdkStepperNext style="height: calc(1.5em + .75rem + 5px); display: flex; align-items: center; justify-content: center;">
+            + Adicionar seu plano
+          </button>
+        </div>
       </div>
     </div>
   </div>
 
-  <div class="row">
-    <div class="col-lg-4">
-      <div class="mb-3">
-        <span>Rua</span>
-        <input type="text" type="text" class="form-control mt-1" id="searchInput" placeholder="Digite a rua"
-          formControlName="street" />
-      </div>
-    </div>
-    <div class="col-lg-4">
-      <div class="mb-3">
-        <span>Número</span>
-        <input type="number" class="form-control mt-1" id="searchInput" placeholder="Digite o número"
-          formControlName="number" />
-      </div>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-lg-12">
-      <div class="mb-3">
-        <span>Observação</span>
-        <input type="text" class="form-control mt-1" id="searchInput" placeholder="Observação"
-          formControlName="observation" />
-      </div>
-    </div>
-  </div>
 </form>
 <ul class="list-inline wizard d-flex justify-content-end mb-0">
   <li class="previous list-inline-item" aria-disabled="true"><button class="btn btn-primary"
-      cdkStepperPrevious>Previous</button></li>
-  <li class="next list-inline-item" aria-disabled="false"><button class="btn btn-primary" cdkStepperNext>Next</button>
+                                                                     cdkStepperPrevious>Voltar</button></li>
+  <li class="next list-inline-item" aria-disabled="false"><button class="btn btn-primary" cdkStepperNext>Confirmar</button>
   </li>
 </ul>
